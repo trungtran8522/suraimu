@@ -402,8 +402,6 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y, enemyID, master=None):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load('enemy.png')
-        if enemyID == 900:
-            self.image = pygame.image.load('boss.png')
         self.rect = self.image.get_rect()
         self.rect.x = x // 32 * 32
         self.rect.y = y // 32 * 32
@@ -416,6 +414,13 @@ class Enemy(pygame.sprite.Sprite):
         self.hp = random.randint(5, 10) * self.vit
         self.prevpos = [0, 0]
         self.collide = []
+        if enemyID == 900:
+            self.image = pygame.image.load('boss.png')
+            self.rect = self.image.get_rect()
+            self.vit *= 10
+            self.hp = random.randint(5, 10) * self.vit
+            self.rect.x = x // 32 * 32
+            self.rect.y = y // 32 * 32
 
     def checkcollision(self):
         if self.rect is not None:
@@ -529,7 +534,7 @@ class Enemy(pygame.sprite.Sprite):
                     self.hitbox.append(pygame.draw.rect(dungeonSurf, (255, 0, 0), (roomX, roomY, node32width, node32height)))
                     for x, y in itertools.product(range(roomX, roomX + int(node32width), BRICK_WIDTH),
                                                   range(roomY, roomY + int(node32height), BRICK_HEIGHT)):
-                        dungeonSurf.blit(wallbg, (x, y))
+                        dungeonSurf.blit(wall, (x, y))
         if step >= 3:
             collide = []
             for i in range(len(self.hitbox)):
@@ -619,8 +624,6 @@ while running:
                 player.moveup()
                 for i in range(len(newdungeon.enemies)):
                     newdungeon.enemies[i].move()
-
-
             if event.key == K_DOWN:
                 player.movedown()
                 for i in range(len(newdungeon.enemies)):
@@ -633,6 +636,17 @@ while running:
                 player.moveright()
                 for i in range(len(newdungeon.enemies)):
                     newdungeon.enemies[i].move()
+            if newdungeon.floor == 5:
+                if not atking:
+                    atk = random.randint(2, 3)
+                    step = 0
+                if atk == 3:
+                    atking = True
+                    atking = newdungeon.enemies[0].dungeonaoe()
+                    print(step)
+                    step += 1
+            else:
+                step = 1
         elif event.type == QUIT:
             running = False
     if newdungeon.floor == 5:
@@ -648,14 +662,4 @@ while running:
         newdungeon.chests[i].checkcollision(newdungeon.chests[i])
     for ii in range(len(newdungeon.enemies)):
         newdungeon.enemies[ii].checkcollision()
-    if newdungeon.floor == 5:
-        if not atking:
-            atk = random.randint(1, 3)
-            step = 0
-        if atk == 3:
-            atking = True
-            atking = newdungeon.enemies[0].dungeonaoe()
-            print(step)
-            step += 1
-    else:
-        step = 1
+
