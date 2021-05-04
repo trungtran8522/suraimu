@@ -54,7 +54,7 @@ missing module named multiprocessing.set_start_method - imported by multiprocess
 missing module named multiprocessing.get_start_method - imported by multiprocessing (top-level), multiprocessing.spawn (top-level)
 missing module named dummy_thread - imported by cffi.lock (conditional, optional)
 missing module named thread - imported by cffi.lock (conditional, optional), cffi.cparser (conditional, optional)
-missing module named 'setuptools.extern.pyparsing' - imported by setuptools._vendor.packaging.markers (top-level), setuptools._vendor.packaging.requirements (top-level)
+missing module named 'setuptools.extern.pyparsing' - imported by setuptools._vendor.packaging.requirements (top-level), setuptools._vendor.packaging.markers (top-level)
 missing module named 'setuptools.extern.packaging.version' - imported by setuptools.config (top-level), setuptools.msvc (top-level)
 missing module named 'setuptools.extern.packaging.utils' - imported by setuptools.wheel (top-level)
 missing module named 'setuptools.extern.packaging.tags' - imported by setuptools.wheel (top-level)

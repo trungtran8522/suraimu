@@ -46,6 +46,7 @@ floor.fill((128, 255, 128))
 # actual tiles creation
 wallbg = pygame.image.load('assets/wall.png')
 floorbg = pygame.image.load('assets/ground.png')
+titlescreenimg = pygame.image.load('titlescreen.png')
 
 # all sprite
 all_sprites = pygame.sprite.Group()
@@ -590,6 +591,17 @@ all_sprites.add(player)
 all_sprites.add(player.currentitem)
 atking = False
 step = 0
+title = True
+while title:
+    screen.blit(titlescreenimg, (0, 0))
+    pygame.display.update()
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == pygame.locals.K_RETURN:
+                title = False
+        elif event.type == QUIT:
+            exit()
+
 
 # main loop
 running = True
@@ -599,17 +611,6 @@ while running:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 running = False
-            if event.key == pygame.locals.K_c:
-                print(f'HP: {player.hp}\nPATT: {player.patt}\nMATT: {player.matt}\nDEF: {player.defense}')
-                if newdungeon.floor == 5:
-                    if not atking:
-                        atk = random.randint(1, 3)
-                        step = 0
-                    if atk == 3:
-                        atking = True
-                        atking = newdungeon.enemies[0].dungeonaoe()
-                        print(step)
-                        step += 1
             if event.key == pygame.locals.K_h:
                 newdungeon.killsprites()
                 newdungeon.generatedungeon()
