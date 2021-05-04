@@ -1,0 +1,3 @@
+[pyinstaller40]
+hook-dirs = tcod.__pyinstaller:get_hook_dirs
+

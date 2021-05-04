@@ -1,0 +1,3 @@
+[console_scripts]
+urizen = urizen.gui.gui_pygame:main
+
