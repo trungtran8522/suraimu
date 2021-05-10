@@ -2,6 +2,7 @@
 Ever remember your first proper game you made? Well this is mine. And it's horrible. Thanks for playing!
 
 Read the bad codes yourself lol :sunglasses:
+```
         /--/      
        /--/       
       //-\        
@@ -20,5 +21,6 @@ Read the bad codes yourself lol :sunglasses:
         \-//      
        /--/       
       /--/        
+```
  not © Trung Tran 2021-????
 Created for a certain school project.
