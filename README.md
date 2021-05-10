@@ -24,3 +24,12 @@ Read the bad codes yourself lol :sunglasses:
 ```
  not © Trung Tran 2021-????
 Created for a certain school project.
+
+Relevant files: 
+```
+assets/
+main.py
+```
+no i would not bother adding a title.
+
+thanks for reading, goodbye.
